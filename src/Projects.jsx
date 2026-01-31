@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import logisticaImg from './img/logistica.png';
 import logistica1 from './img/logistica1.png';
 import logistica2 from './img/logistica2.png';
@@ -24,6 +26,23 @@ const projects = [
     tags: ["Power BI", "Dashboard", "Logística"],
     image: logisticaImg,
     dashImages: [logistica1, logistica2],
+    description:`
+      #Dashboard Logística
+
+      Este dashboard fornece uma visão abrangente dos principais indicadores de desempenho logístico, permitindo uma análise detalhada da operação.
+
+      ## Principais Métricas
+
+      - **Contagem de Pedidos**: Total de pedidos recebidos em um período.
+      - **Quantidade de Transportes**: Número de transportes realizados.
+      - **Entregas Fora do Prazo**: Percentual de entregas que não foram concluídas no prazo.
+
+      ## Objetivos
+
+      - Melhorar a eficiência operacional.
+      - Reduzir custos logísticos.
+      - Aumentar a satisfação do cliente.
+    `
   },
   {
     title: "Atendimento Laboratorial",
@@ -62,17 +81,18 @@ const projects = [
   },
 ];
 
-function ImageModal({ isOpen, onClose, images, projectTitle }) {
+function ImageModal({ isOpen, onClose, images, projectTitle, description }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = description ? images.length + 1 : images.length; // +1 só se tiver descrição
 
   if (!isOpen) return null;
 
   const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prev) => (prev + 1) % totalSlides); // Usar totalSlides aqui
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides); // E aqui também
   };
 
   return (
@@ -89,26 +109,35 @@ function ImageModal({ isOpen, onClose, images, projectTitle }) {
             ‹
           </button>
           
-          <img 
-            src={images[currentIndex]} 
-            alt={`${projectTitle} - Imagem ${currentIndex + 1}`}
-            className="modal-image"
-          />
-          
+          {currentIndex < images.length ? (
+            <img 
+              src={images[currentIndex]} 
+              alt={`${projectTitle} - Imagem ${currentIndex + 1}`}
+              className="modal-image"
+            />
+          ) : (
+            <div className="modal-description-slide">
+              <Markdown remarkPlugins={[remarkGfm]}>
+                {description}
+              </Markdown>
+            </div>
+          )}
+
           <button className="carousel-btn next" onClick={nextImage}>
             ›
           </button>
         </div>
 
-          <div className="carousel-indicators">
-            {images.map((_, index) => (
-              <span
-                key={index}
-                className={`indicator ${index === currentIndex ? 'active' : ''}`}
-                onClick={() => setCurrentIndex(index)}
-              />
-            ))}
-          </div>
+        <div className="carousel-indicators">
+          {/* Corrigido: criar indicadores para TODOS os slides */}
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <span
+              key={index}
+              className={`indicator ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -172,6 +201,7 @@ function Projects() {
           onClose={closeModal}
           images={selectedProject.dashImages}
           projectTitle={selectedProject.title}
+          description={selectedProject.description}
         />
       )}
     </>
