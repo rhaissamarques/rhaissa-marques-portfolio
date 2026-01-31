@@ -114,7 +114,7 @@ function ImageModal({ isOpen, onClose, images, projectTitle }) {
   );
 }
 
-function ProjectsSection() {
+function Projects() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -130,41 +130,42 @@ function ProjectsSection() {
 
   return (
     <>
-      <div className='grid3'>
-        {projects.map((p) => (
-          <article key={p.title} className="card">
-            <div
-              className="card__media"
-              style={{
-                backgroundImage: `url("${p.image}")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundBlendMode: "multiply",
-              }}
-            />
-            <div className="card__body">
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
-              <div className="tags">
-                {p.tags.map((t) => (
-                  <span key={t} className="tag">
-                    {t}
-                  </span>
-                ))}
+      <section id="projects" className="section">
+        <div className='grid3'>
+          {projects.map((p) => (
+            <article key={p.title} className="card">
+              <div
+                className="card__media"
+                style={{
+                  backgroundImage: `url("${p.image}")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundBlendMode: "multiply",
+                }}
+              />
+              <div className="card__body">
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+                <div className="tags">
+                  {p.tags.map((t) => (
+                    <span key={t} className="tag">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="card__actions">
-              <button
-                className="link"
-                onClick={() => openModal(p)}
-              >
-                Ver Detalhes
-              </button>
-            </div>
-          </article>
-        ))}
-      </div>
-
+              <div className="card__actions">
+                <button
+                  className="link"
+                  onClick={() => openModal(p)}
+                >
+                  Ver Detalhes
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
       {selectedProject && (
         <ImageModal
           isOpen={modalOpen}
@@ -177,4 +178,4 @@ function ProjectsSection() {
   );
 }
 
-export default ProjectsSection;
+export default Projects;
