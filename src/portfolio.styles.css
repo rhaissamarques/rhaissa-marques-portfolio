@@ -1,0 +1,120 @@
+:root {
+  --bg: #0b0b12;
+  --text: #e9e9f1;
+  --muted: #718096;
+  --brand-300: #3182ce;
+  --brand-500: #1a365d;
+  --brand-600: #4a5568;
+  --card: #12121c;
+  --stroke: #1e1e2a;
+  --ghost: #242436;
+  --ring: rgba(59, 130, 246, 0.4);
+  --radius: 16px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  --container: 1120px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+}
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.site {
+  isolation: isolate;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 0;
+  border-top: 1px solid var(--stroke);
+}
+.section.alt {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02),
+    transparent
+  );
+}
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0 0 14px;
+}
+.section__sub {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+
+/* FORM */
+.contact {
+  max-width: 760px;
+}
+.form {
+  display: grid;
+  gap: 14px;
+}
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 640px) {
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+}
+label {
+  display: grid;
+  gap: 8px;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #10101a;
+  border: 1px solid var(--stroke);
+  color: var(--text);
+  outline: none;
+}
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid var(--stroke);
+  padding: 26px 0;
+  color: var(--muted);
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.to-top {
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--stroke);
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.to-top:hover {
+  color: var(--text);
+}

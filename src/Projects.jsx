@@ -1,56 +1,21 @@
-import "./ProjectsStyle.css";
-import logisticaImg from "./img/logistica.png";
+import { useState } from 'react';
+import logisticaImg from './img/logistica.png';
+import logistica1 from './img/logistica1.png';
+import logistica2 from './img/logistica2.png';
+import laboratorio from './img/laboratorio1.png';
+import vendas from './img/vendas.png';
+import rh1 from './img/rh1.png';
+import rh2 from './img/rh2.png';
+import producao from './img/producao1.png';
+import marketing1 from './img/marketing1.png';
+import marketing2 from './img/marketing2.png';
+import './ProjectsStyle.css';
+
 import AtendimentoLaboratorial from "./img/AtendimentoLaboratorial.png";
 import Vendas from "./img/vendas.png";
 import RH from "./img/rh.png";
-import Producao from "./img/producao.png";
+import Producao from "./img/producao1.png";
 import Marketing from "./img/Marketing.png";
-
-function Projects() {
-  return (
-    <section id="projects" className="section">
-      <div className="container">
-        <h2>Projetos em destaque</h2>
-        <div className="grid3">
-          {projects.map((p) => (
-            <article key={p.title} className="card">
-              <div
-                className="card__media"
-                style={{
-                  backgroundImage: `url("${p.image}")`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundBlendMode: "multiply",
-                }}
-              />
-              <div className="card__body">
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <div className="tags">
-                  {p.tags.map((t) => (
-                    <span key={t} className="tag">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="card__actions">
-                <a
-                  className="link"
-                  href={p.dashUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Dashboard Completo
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 const projects = [
   {
@@ -58,49 +23,158 @@ const projects = [
     desc: "Contagem pedidos, quantidade transportes, entregas fora do prazo",
     tags: ["Power BI", "Dashboard", "Logística"],
     image: logisticaImg,
-    dashUrl:
-      "https://app.powerbi.com/links/8kalOrGKyR?ctid=d2d87c5b-b48e-4c82-8831-25fde4c33115&pbi_source=linkShare",
+    dashImages: [logistica1, logistica2],
   },
   {
     title: "Atendimento Laboratorial",
     desc: "Atendimento diário, evolução mensal, faturamento",
     tags: ["Power BI", "Dashboard", "Laboratorial"],
     image: AtendimentoLaboratorial,
-    dashUrl:
-      "https://app.powerbi.com/links/GBCrgh9ueb?ctid=d2d87c5b-b48e-4c82-8831-25fde4c33115&pbi_source=linkShare",
+    dashImages: [laboratorio],
   },
   {
     title: "Dashboard de Vendas",
     desc: "Faturamento por ano e mês, produto mais vendio, vendas por região",
     tags: ["Power BI", "Dashboard", "Vendas"],
     image: Vendas,
-    dashUrl:
-      "https://app.powerbi.com/links/T2aqW7fvvg?ctid=d2d87c5b-b48e-4c82-8831-25fde4c33115&pbi_source=linkShare",
+    dashImages: [vendas],
   },
   {
     title: "Dashboard de RH",
     desc: "Contratações, funcionários ativos, desligamentos, gênero, cargo por área",
     tags: ["Power BI", "Dashboard", "RH"],
     image: RH,
-    dashUrl:
-      "https://app.powerbi.com/links/wHnA15meLJ?ctid=d2d87c5b-b48e-4c82-8831-25fde4c33115&pbi_source=linkShare&bookmarkGuid=2c477453-d414-4806-bf37-0ec4ecb898bf",
+    dashImages: [rh1, rh2],
   },
   {
     title: "Dashboard de Produção",
     desc: "Qtd produzida, Qtd rejeitada, Horas produtivas, Horas paradas, prod mensal",
     tags: ["Power BI", "Dashboard", "Produção"],
     image: Producao,
-    dashUrl:
-      "https://app.powerbi.com/links/wHnA15meLJ?ctid=d2d87c5b-b48e-4c82-8831-25fde4c33115&pbi_source=linkShare&bookmarkGuid=2c477453-d414-4806-bf37-0ec4ecb898bf",
+    dashImages: [producao],
   },
   {
     title: "Dashboard de Marketing",
     desc: "Transações, Receira, Conversão, Rejeição, Tempo médio na página",
     tags: ["Power BI", "Dashboard", "Marketing"],
     image: Marketing,
-    dashUrl:
-      "https://app.powerbi.com/links/a9XIzQTyDV?ctid=d2d87c5b-b48e-4c82-8831-25fde4c33115&pbi_source=linkShare&bookmarkGuid=3c440aa5-f29b-4818-b2b5-43ca5b36744d",
+    dashImages: [marketing1, marketing2],
   },
 ];
 
-export default Projects;
+function ImageModal({ isOpen, onClose, images, projectTitle }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  if (!isOpen) return null;
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose}>
+          ✕
+        </button>
+        
+        <h2 className="modal-title">{projectTitle}</h2>
+        
+        <div className="modal-carousel">
+          <button className="carousel-btn prev" onClick={prevImage}>
+            ‹
+          </button>
+          
+          <img 
+            src={images[currentIndex]} 
+            alt={`${projectTitle} - Imagem ${currentIndex + 1}`}
+            className="modal-image"
+          />
+          
+          <button className="carousel-btn next" onClick={nextImage}>
+            ›
+          </button>
+        </div>
+
+          <div className="carousel-indicators">
+            {images.map((_, index) => (
+              <span
+                key={index}
+                className={`indicator ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectsSection() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedProject(null);
+  };
+
+  return (
+    <>
+      <div className='grid3'>
+        {projects.map((p) => (
+          <article key={p.title} className="card">
+            <div
+              className="card__media"
+              style={{
+                backgroundImage: `url("${p.image}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundBlendMode: "multiply",
+              }}
+            />
+            <div className="card__body">
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+              <div className="tags">
+                {p.tags.map((t) => (
+                  <span key={t} className="tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="card__actions">
+              <button
+                className="link"
+                onClick={() => openModal(p)}
+              >
+                Ver Detalhes
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {selectedProject && (
+        <ImageModal
+          isOpen={modalOpen}
+          onClose={closeModal}
+          images={selectedProject.dashImages}
+          projectTitle={selectedProject.title}
+        />
+      )}
+    </>
+  );
+}
+
+export default ProjectsSection;
