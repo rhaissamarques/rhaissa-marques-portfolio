@@ -4,17 +4,16 @@ import remarkGfm from 'remark-gfm';
 import logisticaImg from './img/logistica.png';
 import logistica1 from './img/logistica1.png';
 import logistica2 from './img/logistica2.png';
-import laboratorio from './img/laboratorio1.png';
-import vendas from './img/vendas.png';
+import logistica3 from './img/logistica3.png';
 import rh1 from './img/rh1.png';
 import rh2 from './img/rh2.png';
-import producao from './img/producao1.png';
+import rh3 from './img/rh3.png';
+import producao1 from './img/producao1.png';
+import producao2 from './img/producao2.png';
 import marketing1 from './img/marketing1.png';
 import marketing2 from './img/marketing2.png';
+import marketing3 from './img/marketing3.png';
 import './ProjectsStyle.css';
-
-import AtendimentoLaboratorial from "./img/AtendimentoLaboratorial.png";
-import Vendas from "./img/vendas.png";
 import RH from "./img/rh.png";
 import Producao from "./img/producao1.png";
 import Marketing from "./img/Marketing.png";
@@ -25,59 +24,28 @@ const projects = [
     desc: "Contagem pedidos, quantidade transportes, entregas fora do prazo",
     tags: ["Power BI", "Dashboard", "Logística"],
     image: logisticaImg,
-    dashImages: [logistica1, logistica2],
-    description:`
-      #Dashboard Logística
-
-      Este dashboard fornece uma visão abrangente dos principais indicadores de desempenho logístico, permitindo uma análise detalhada da operação.
-
-      ## Principais Métricas
-
-      - **Contagem de Pedidos**: Total de pedidos recebidos em um período.
-      - **Quantidade de Transportes**: Número de transportes realizados.
-      - **Entregas Fora do Prazo**: Percentual de entregas que não foram concluídas no prazo.
-
-      ## Objetivos
-
-      - Melhorar a eficiência operacional.
-      - Reduzir custos logísticos.
-      - Aumentar a satisfação do cliente.
-    `
-  },
-  {
-    title: "Atendimento Laboratorial",
-    desc: "Atendimento diário, evolução mensal, faturamento",
-    tags: ["Power BI", "Dashboard", "Laboratorial"],
-    image: AtendimentoLaboratorial,
-    dashImages: [laboratorio],
-  },
-  {
-    title: "Dashboard de Vendas",
-    desc: "Faturamento por ano e mês, produto mais vendio, vendas por região",
-    tags: ["Power BI", "Dashboard", "Vendas"],
-    image: Vendas,
-    dashImages: [vendas],
+    dashImages: [logistica1, logistica2, logistica3],
   },
   {
     title: "Dashboard de RH",
     desc: "Contratações, funcionários ativos, desligamentos, gênero, cargo por área",
     tags: ["Power BI", "Dashboard", "RH"],
     image: RH,
-    dashImages: [rh1, rh2],
+    dashImages: [rh1, rh2, rh3],
   },
   {
     title: "Dashboard de Produção",
     desc: "Qtd produzida, Qtd rejeitada, Horas produtivas, Horas paradas, prod mensal",
     tags: ["Power BI", "Dashboard", "Produção"],
     image: Producao,
-    dashImages: [producao],
+    dashImages: [producao1, producao2],
   },
   {
     title: "Dashboard de Marketing",
     desc: "Transações, Receira, Conversão, Rejeição, Tempo médio na página",
     tags: ["Power BI", "Dashboard", "Marketing"],
     image: Marketing,
-    dashImages: [marketing1, marketing2],
+    dashImages: [marketing1, marketing2, marketing3],
   },
 ];
 
@@ -165,6 +133,7 @@ function Projects() {
             <article key={p.title} className="card">
               <div
                 className="card__media"
+                onClick={() => openModal(p)}
                 style={{
                   backgroundImage: `url("${p.image}")`,
                   backgroundSize: "cover",
