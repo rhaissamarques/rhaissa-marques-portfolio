@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/rhaissa-marques-portfolio/static/css/main.48e68cde.css",
+    "main.js": "/rhaissa-marques-portfolio/static/js/main.37846686.js",
+    "static/js/453.2c01871a.chunk.js": "/rhaissa-marques-portfolio/static/js/453.2c01871a.chunk.js",
+    "static/media/vendas2.png": "/rhaissa-marques-portfolio/static/media/vendas2.cbc303ee25f73df8b882.png",
+    "static/media/marketing3.png": "/rhaissa-marques-portfolio/static/media/marketing3.dd9e903701110375d2d2.png",
+    "static/media/rh3.png": "/rhaissa-marques-portfolio/static/media/rh3.b6a1a119080463e9269a.png",
+    "static/media/logistica3.png": "/rhaissa-marques-portfolio/static/media/logistica3.a387e1ebbb6dc2f641fc.png",
+    "static/media/producao2.png": "/rhaissa-marques-portfolio/static/media/producao2.f7ec4818acffc8788a91.png",
+    "static/media/logistica1.png": "/rhaissa-marques-portfolio/static/media/logistica1.479a8eefe1142a275774.png",
+    "static/media/vendas1.png": "/rhaissa-marques-portfolio/static/media/vendas1.96cc778143ddfe1cd603.png",
+    "static/media/rh1.png": "/rhaissa-marques-portfolio/static/media/rh1.0580539a71ef44be969a.png",
+    "static/media/logistica2.png": "/rhaissa-marques-portfolio/static/media/logistica2.4e986286eae65dd4ae75.png",
+    "static/media/logistica.png": "/rhaissa-marques-portfolio/static/media/logistica.108e8a31cb56fb193696.png",
+    "static/media/producao1.png": "/rhaissa-marques-portfolio/static/media/producao1.0acdf685a860baa8fffb.png",
+    "static/media/marketing2.png": "/rhaissa-marques-portfolio/static/media/marketing2.94069f14f8c7cce740a7.png",
+    "static/media/rh.png": "/rhaissa-marques-portfolio/static/media/rh.f5327b11a532c98f08dd.png",
+    "static/media/marketing1.png": "/rhaissa-marques-portfolio/static/media/marketing1.40a48d9edeb78b49b5d2.png",
+    "static/media/rh2.png": "/rhaissa-marques-portfolio/static/media/rh2.f1fa87bdceef088f3b08.png",
+    "static/media/Marketing.png": "/rhaissa-marques-portfolio/static/media/Marketing.ca2f15ef2ccd1db0e25b.png",
+    "index.html": "/rhaissa-marques-portfolio/index.html",
+    "main.48e68cde.css.map": "/rhaissa-marques-portfolio/static/css/main.48e68cde.css.map",
+    "main.37846686.js.map": "/rhaissa-marques-portfolio/static/js/main.37846686.js.map",
+    "453.2c01871a.chunk.js.map": "/rhaissa-marques-portfolio/static/js/453.2c01871a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48e68cde.css",
+    "static/js/main.37846686.js"
+  ]
+}
