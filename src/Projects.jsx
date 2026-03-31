@@ -13,12 +13,21 @@ import producao2 from './img/producao2.png';
 import marketing1 from './img/marketing1.png';
 import marketing2 from './img/marketing2.png';
 import marketing3 from './img/marketing3.png';
+import vendas1 from './img/vendas1.png';
+import vendas2 from './img/vendas2.png';
 import './ProjectsStyle.css';
 import RH from "./img/rh.png";
 import Producao from "./img/producao1.png";
 import Marketing from "./img/Marketing.png";
 
 const projects = [
+  {
+    title: "Dashboard Vendas",
+    desc: "Lucro, faturamento por país e por tipo de clietne, margem de lucro",
+    tags: ["Power BI", "Dashboard", "Vendas"],
+    image: vendas1,
+    dashImages: [vendas1, vendas2],
+  },
   {
     title: "Dashboard Logística",
     desc: "Contagem pedidos, quantidade transportes, entregas fora do prazo",
