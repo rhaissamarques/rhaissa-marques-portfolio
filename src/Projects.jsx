@@ -13,6 +13,7 @@ import producao2 from './img/producao2.png';
 import marketing1 from './img/marketing1.png';
 import marketing2 from './img/marketing2.png';
 import marketing3 from './img/marketing3.png';
+import marketing4 from './img/marketing4.png';
 import vendas1 from './img/vendas1.png';
 import vendas2 from './img/vendas2.png';
 import './ProjectsStyle.css';
@@ -35,6 +36,7 @@ const projects = [
     tags: ["Power BI", "Dashboard", "Logística"],
     image: logisticaImg,
     dashImages: [logistica1, logistica2, logistica3],
+    powerBiLink: "https://app.powerbi.com/view?r=eyJrIjoiMDkyOTlhNmQtNTA4NS00OTgyLTlkMjctMjM4YWJiOGU1OTBjIiwidCI6ImQyZDg3YzViLWI0OGUtNGM4Mi04ODMxLTI1ZmRlNGMzMzExNSJ9&pageName=ReportSection"
   },
   {
     title: "Dashboard de RH",
@@ -49,13 +51,15 @@ const projects = [
     tags: ["Power BI", "Dashboard", "Produção"],
     image: Producao,
     dashImages: [producao1, producao2],
+    powerBiLink: "https://app.powerbi.com/view?r=eyJrIjoiMzllNTZiN2YtNzk2Ni00ODdkLTk2YjctNzVhZTVkZDNkMzFmIiwidCI6ImQyZDg3YzViLWI0OGUtNGM4Mi04ODMxLTI1ZmRlNGMzMzExNSJ9"
   },
   {
     title: "Dashboard de Marketing",
     desc: "Transações, Receira, Conversão, Rejeição, Tempo médio na página",
     tags: ["Power BI", "Dashboard", "Marketing"],
     image: Marketing,
-    dashImages: [marketing1, marketing2, marketing3],
+    dashImages: [marketing1, marketing2, marketing3, marketing4],
+    powerBiLink: "https://app.powerbi.com/view?r=eyJrIjoiNTM0ZmZkNGQtMmQxZC00ZDMwLWI0YjktN2Q2N2VjYmIwOWZjIiwidCI6ImQyZDg3YzViLWI0OGUtNGM4Mi04ODMxLTI1ZmRlNGMzMzExNSJ9&pageName=ae2238d1ae6fe1697a8e"
   },
 ];
 

@@ -15,7 +15,7 @@ function Presentation() {
           <p className="kicker">Analista de dados</p>
           <h2>
             <div className="animation">
-              <TypeAnimation
+              {/* <TypeAnimation
                 sequence={[
                   "Acelerar a tomada de decisões",
                   1000,
@@ -43,7 +43,7 @@ function Presentation() {
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-              />
+              /> */}
             </div>
           </h2>
           <p className="sub">
