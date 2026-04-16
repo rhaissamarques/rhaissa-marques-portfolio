@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rhaissa-marques-portfolio/static/css/main.48e68cde.css",
-    "main.js": "/rhaissa-marques-portfolio/static/js/main.37846686.js",
+    "main.js": "/rhaissa-marques-portfolio/static/js/main.6e32fa44.js",
     "static/js/453.2c01871a.chunk.js": "/rhaissa-marques-portfolio/static/js/453.2c01871a.chunk.js",
     "static/media/vendas2.png": "/rhaissa-marques-portfolio/static/media/vendas2.cbc303ee25f73df8b882.png",
     "static/media/marketing3.png": "/rhaissa-marques-portfolio/static/media/marketing3.dd9e903701110375d2d2.png",
@@ -21,11 +21,11 @@
     "static/media/Marketing.png": "/rhaissa-marques-portfolio/static/media/Marketing.ca2f15ef2ccd1db0e25b.png",
     "index.html": "/rhaissa-marques-portfolio/index.html",
     "main.48e68cde.css.map": "/rhaissa-marques-portfolio/static/css/main.48e68cde.css.map",
-    "main.37846686.js.map": "/rhaissa-marques-portfolio/static/js/main.37846686.js.map",
+    "main.6e32fa44.js.map": "/rhaissa-marques-portfolio/static/js/main.6e32fa44.js.map",
     "453.2c01871a.chunk.js.map": "/rhaissa-marques-portfolio/static/js/453.2c01871a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.48e68cde.css",
-    "static/js/main.37846686.js"
+    "static/js/main.6e32fa44.js"
   ]
 }
