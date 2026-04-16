@@ -23,10 +23,11 @@ import Marketing from "./img/Marketing.png";
 const projects = [
   {
     title: "Dashboard Vendas",
-    desc: "Lucro, faturamento por país e por tipo de clietne, margem de lucro",
+    desc: "Lucro, faturamento por país e por tipo de cliente, margem de lucro",
     tags: ["Power BI", "Dashboard", "Vendas"],
     image: vendas1,
     dashImages: [vendas1, vendas2],
+    powerBiLink: "https://app.powerbi.com/view?r=eyJrIjoiNzQ1NzJmMGYtNTlkMi00MmJhLWJjM2EtNTUyYmQ0YzhlMzhiIiwidCI6ImQyZDg3YzViLWI0OGUtNGM4Mi04ODMxLTI1ZmRlNGMzMzExNSJ9"
   },
   {
     title: "Dashboard Logística",
@@ -58,33 +59,23 @@ const projects = [
   },
 ];
 
-function ImageModal({ isOpen, onClose, images, projectTitle, description }) {
+function ImageModal({ isOpen, onClose, images = [], projectTitle, description }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = description ? images.length + 1 : images.length; // +1 só se tiver descrição
+  const totalSlides = description ? images.length + 1 : images.length;
 
   if (!isOpen) return null;
 
-  const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides); // Usar totalSlides aqui
-  };
-
-  const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides); // E aqui também
-  };
+  const nextImage = () => setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  const prevImage = () => setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>
-          ✕
-        </button>
-        
+        <button className="modal-close" onClick={onClose}>✕</button>
         <h2 className="modal-title">{projectTitle}</h2>
         
         <div className="modal-carousel">
-          <button className="carousel-btn prev" onClick={prevImage}>
-            ‹
-          </button>
+          <button className="carousel-btn prev" onClick={prevImage}>‹</button>
           
           {currentIndex < images.length ? (
             <img 
@@ -100,13 +91,10 @@ function ImageModal({ isOpen, onClose, images, projectTitle, description }) {
             </div>
           )}
 
-          <button className="carousel-btn next" onClick={nextImage}>
-            ›
-          </button>
+          <button className="carousel-btn next" onClick={nextImage}>›</button>
         </div>
 
         <div className="carousel-indicators">
-          {/* Corrigido: criar indicadores para TODOS os slides */}
           {Array.from({ length: totalSlides }).map((_, index) => (
             <span
               key={index}
@@ -147,7 +135,6 @@ function Projects() {
                   backgroundImage: `url("${p.image}")`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundBlendMode: "multiply",
                 }}
               />
               <div className="card__body">
@@ -155,24 +142,30 @@ function Projects() {
                 <p>{p.desc}</p>
                 <div className="tags">
                   {p.tags.map((t) => (
-                    <span key={t} className="tag">
-                      {t}
-                    </span>
+                    <span key={t} className="tag">{t}</span>
                   ))}
                 </div>
               </div>
               <div className="card__actions">
-                <button
-                  className="link"
-                  onClick={() => openModal(p)}
-                >
+                <button className="link" onClick={() => openModal(p)}>
                   Ver Detalhes
                 </button>
+                {p.powerBiLink && (
+                  <a 
+                    href={p.powerBiLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link link-powerbi"
+                  >
+                    Ver Dashboard
+                  </a>
+                )}
               </div>
             </article>
           ))}
         </div>
       </section>
+
       {selectedProject && (
         <ImageModal
           isOpen={modalOpen}
