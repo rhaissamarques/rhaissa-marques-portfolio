@@ -4,7 +4,7 @@ import { TypeAnimation } from "react-type-animation";
 function Presentation() {
 
   function openWhatsApp() {
-    const phone = "5531971663677";
+    const phone = "";
     const message = "Olá! Vi seu perfil e gostaria de conversar sobre oportunidades de trabalho. Você tem disponibilidade para uma conversa?";
     window.open(
       `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
